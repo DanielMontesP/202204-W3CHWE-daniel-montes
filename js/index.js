@@ -150,7 +150,9 @@ function fetchKantoPokemon(url) {
         fetchPokemonData(pokemon);
       });
       if (isViewTodos) {
-        document.querySelector(".check_ViewAll_label").innerHTML = "Volver";
+        document.querySelector(".check_ViewAll_label").style.visibility =
+          "hidden";
+        document.querySelector(".check_ViewAll").style.visibility = "hidden";
         // debugger;
         urlToProcess = "https://pokeapi.co/api/v2/pokemon?limit=4&offset=20";
         // renderEverything(urlToProcess);

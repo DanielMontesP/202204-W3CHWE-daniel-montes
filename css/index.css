@@ -12,7 +12,8 @@ img,
 p {
   text-align: center;
 }
-ul {
+ul,
+li {
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -22,9 +23,15 @@ h3 {
   margin: 0;
 }
 .nav {
-  display: flex;
+  display: grid;
   width: 100%;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  z-index: 10000;
+  position: fixed;
+  top: 0px;
+  background: white;
+  height: 80px;
 }
 .wwwPrev {
   visibility: hidden;
@@ -32,8 +39,41 @@ h3 {
 .wwwNext {
   visibility: hidden;
 }
-.cardPoke {
+.check_ViewAll {
+  left: 45%;
+  position: fixed;
+  top: 56px;
+}
+.poke__overlay {
+  border-radius: 0.25rem;
+  position: absolute;
+  padding: 25px 15px;
+  top: -100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s;
+  width: 160px;
+  height: 100%;
+  margin: 0;
+}
+.cardPoke:nth-child(even) .poke__overlay {
+  top: 100%;
+}
+.cardPoke:hover .poke__overlay {
+  opacity: 1;
+  pointer-events: all;
+  top: 0;
+}
+.cardPoke {
+  /* display: flex; */
   background: sandybrown;
   text-align: center;
   margin: 0.875em 0.5em;
@@ -47,22 +87,32 @@ h3 {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  width: 125px;
-  height: 315px;
+  width: 160px;
+  flex-basis: auto;
+  flex-grow: 0;
+
   min-height: 0;
   padding: 0;
-  border: none;
+  border: 5px solid rgb(232, 115, 20);
   border-radius: 2.2857142899999996rem;
 }
 #container {
   margin: auto;
 }
-
+.check_ViewAll_label {
+  text-align: center;
+  left: 49%;
+  position: fixed;
+  top: 53px;
+}
 #poke-container {
   margin: auto;
   width: 90%;
   padding: 10px;
   display: inline-flex;
+  justify-content: center;
+  top: 90px;
+  position: relative;
 }
 
 #header-container {

@@ -2,6 +2,7 @@ let newPrevBt = "";
 let newNextBt = "";
 let isFirstRun = true;
 let urlToProcess = "";
+let isViewTodos = false;
 // let isRendered = false;
 
 function createTypes(types, ul) {
@@ -93,7 +94,7 @@ const createNav = (allpokemon) => {
   newCheckViewAll.type = "checkbox";
   newCheckViewAll.id = "view_All";
   newCheckViewAll.className = "check_ViewAll";
-  newCheckViewAll.checked = true;
+
   container.append(newDivContainer);
 
   newDivContainer.append(
@@ -104,6 +105,11 @@ const createNav = (allpokemon) => {
     newNextBtSpan,
     newCheckViewAll
   );
+
+  newCheckViewAll.addEventListener("click", () => {
+    isViewTodos = true;
+    renderEverything("https://pokeapi.co/api/v2/pokemon?limit=1000"); // eslint-disable-line no-use-before-define
+  });
   const newLabel = document.createElement("label");
   newLabel.htmlFor = newCheckViewAll.id;
   newLabel.className = "check_ViewAll_label";
@@ -143,6 +149,23 @@ function fetchKantoPokemon(url) {
       allpokemon.results.forEach((pokemon) => {
         fetchPokemonData(pokemon);
       });
+      if (isViewTodos) {
+        document.querySelector(".check_ViewAll_label").innerHTML = "Volver";
+        // debugger;
+        urlToProcess = "https://pokeapi.co/api/v2/pokemon?limit=4&offset=20";
+        // renderEverything(urlToProcess);
+
+        // checkbox.removeEventListener("click", () => {
+        //   isViewTodos = true;
+        //   renderEverything("https://pokeapi.co/api/v2/pokemon?limit=1000"); // eslint-disable-line no-use-before-define
+        // }); // eslint-disable-line no-use-before-define
+        // debugger;
+        // checkbox.addEventListener("click", () => {
+        //   renderEverything(
+        //     "https://pokeapi.co/api/v2/pokemon?limit=4&offset=20" // eslint-disable-line no-use-before-define
+        //   );
+        // });
+      }
     });
 }
 function renderEverything(url) {

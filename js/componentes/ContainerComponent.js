@@ -10,7 +10,6 @@ class ContainerComponent extends Component {
   }
 
   render() {
-    debugger;
     this.element.innerHTML = `<header class="main-header">
         <h1 class="main-title">Pokemons</h1>
       </header>

@@ -1,8 +1,5 @@
-console.log("You have connected...");
+import AComponent from "./componentes/AComponent.js";
 
-function getDeleteBtn() {
-  return document.querySelector("#delete-btn");
-}
 function createTypes(types, ul) {
   types.forEach((type) => {
     const typeLi = document.createElement("li");
@@ -61,6 +58,12 @@ function fetchPokemonData(pokemon) {
       renderPokemon(pokeData);
     });
 }
+function renderEverything(url) {
+  const allPokemonContainer = document.querySelector("#poke-container");
+  allPokemonContainer.innerText = "";
+  fetchKantoPokemon(url);
+}
+
 function fetchKantoPokemon(url) {
   let urlToProcess = "";
   if (url === "") {
@@ -76,7 +79,9 @@ function fetchKantoPokemon(url) {
       const newDivContainer = document.createElement("div");
       newDivContainer.className = "nav";
       const newH3 = document.createElement("h3");
+
       const newPrevBt = document.createElement("a");
+
       const newPrevBtSpan = document.createElement("span");
       newPrevBtSpan.className = "wwwPrev";
       newPrevBtSpan.innerHTML = allpokemon.previous;
@@ -110,15 +115,10 @@ function fetchKantoPokemon(url) {
       });
     });
 }
-function renderEverything(url) {
-  const allPokemonContainer = document.querySelector("#poke-container");
-  allPokemonContainer.innerText = "";
-  fetchKantoPokemon(url);
 
-  // getDeleteBtn().style.display = "block";
-}
 function deleteEverything(event) {
-  event.target.style = "none";
+  const eventToDel = event;
+  eventToDel.target.style = "none";
   const allPokemonContainer = document.querySelector("#poke-container");
   allPokemonContainer.innerText = "";
 

@@ -62,7 +62,7 @@ function fetchPokemonData(pokemon) {
 function fetchKantoPokemon(url) {
   let urlToProcess = "";
   if (url === "") {
-    urlToProcess = "https://pokeapi.co/api/v2/pokemon?limit=1000&offset=10";
+    urlToProcess = "https://pokeapi.co/api/v2/pokemon?limit=10&offset=10";
   } else {
     urlToProcess = url;
   }

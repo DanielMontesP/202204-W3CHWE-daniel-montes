@@ -1,7 +1,85 @@
 * {
   box-sizing: border-box;
 }
-.container {
-  display: inline-grid;
+html,
+body {
+  height: 100%;
+  width: 100%;
   text-align: center;
+}
+h4,
+img,
+p {
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+h3 {
+  width: inherit;
+  margin: 0;
+}
+.nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.wwwPrev {
+  visibility: hidden;
+}
+.wwwNext {
+  visibility: hidden;
+}
+.cardPoke {
+  display: flex;
+  background: sandybrown;
+  text-align: center;
+  margin: 0.875em 0.5em;
+  float: none;
+  max-width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 125px;
+  height: 315px;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 2.2857142899999996rem;
+}
+#container {
+  margin: auto;
+}
+
+#poke-container {
+  margin: auto;
+  width: 90%;
+  padding: 10px;
+  display: inline-flex;
+}
+
+#header-container {
+  border-radius: 0px !important;
+}
+
+#header-text {
+  margin: 0 auto;
+}
+
+#generate-pokemon {
+  margin: 0 auto;
+}
+
+#delete-btn {
+  position: absolute;
+  left: 85%;
+  display: none;
+  margin-bottom: 5%;
 }

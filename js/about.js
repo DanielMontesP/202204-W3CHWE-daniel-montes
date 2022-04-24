@@ -1,3 +1,3 @@
-const queryParams = new URLSearchParams(window.location.search);
+// const queryParams = new URLSearchParams(window.location.search);
 
-const id = params.get("id");
+// const id = params.get("id");

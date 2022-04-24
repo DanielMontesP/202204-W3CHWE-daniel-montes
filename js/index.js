@@ -2,7 +2,7 @@ let newPrevBt = "";
 let newNextBt = "";
 let isFirstRun = true;
 let urlToProcess = "";
-let isRendered = false;
+// let isRendered = false;
 
 function createTypes(types, ul) {
   types.forEach((type) => {
@@ -114,15 +114,15 @@ const createNav = (allpokemon) => {
   if (document.querySelector(".btNext")) {
     newNextBt.addEventListener("click", () => {
       const newNext = document.querySelector(".wwwNext").innerHTML;
-      isRendered = false;
-      renderEverything(newNext);
+
+      renderEverything(newNext); // eslint-disable-line no-use-before-define
     });
   }
   if (document.querySelector(".btPrev")) {
     newPrevBt.addEventListener("click", () => {
       const newPrev = document.querySelector(".wwwPrev").innerHTML;
-      isRendered = false;
-      renderEverything(newPrev);
+
+      renderEverything(newPrev); // eslint-disable-line no-use-before-define
     });
   }
 };
@@ -136,7 +136,6 @@ function fetchKantoPokemon(url) {
   fetch(urlToProcess)
     .then((response) => response.json())
     .then((allpokemon) => {
-      debugger;
       // if (isFirstRun) {
       createNav(allpokemon);
       isFirstRun = false;
@@ -150,7 +149,6 @@ function renderEverything(url) {
   const allPokemonContainer = document.querySelector("#poke-container");
   allPokemonContainer.innerText = "";
 
-  isRendered = true;
   fetchKantoPokemon(url);
 }
 if (isFirstRun) {

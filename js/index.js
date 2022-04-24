@@ -1,4 +1,4 @@
-import AComponent from "./componentes/AComponent.js";
+// import AComponent from "./componentes/AComponent.js";
 
 function createTypes(types, ul) {
   types.forEach((type) => {
@@ -58,11 +58,6 @@ function fetchPokemonData(pokemon) {
       renderPokemon(pokeData);
     });
 }
-function renderEverything(url) {
-  const allPokemonContainer = document.querySelector("#poke-container");
-  allPokemonContainer.innerText = "";
-  fetchKantoPokemon(url);
-}
 
 function fetchKantoPokemon(url) {
   let urlToProcess = "";
@@ -104,31 +99,23 @@ function fetchKantoPokemon(url) {
         newPrevBtSpan,
         newNextBtSpan
       );
-      newPrevBt.addEventListener("click", () => {
-        renderEverything(document.querySelector(".wwwPrev").innerHTML);
-      });
-      newNextBt.addEventListener("click", () => {
-        renderEverything(document.querySelector(".wwwNext").innerHTML);
-      });
+
       allpokemon.results.forEach((pokemon) => {
         fetchPokemonData(pokemon);
       });
     });
 }
-
-function deleteEverything(event) {
-  const eventToDel = event;
-  eventToDel.target.style = "none";
+function renderEverything(url) {
   const allPokemonContainer = document.querySelector("#poke-container");
   allPokemonContainer.innerText = "";
-
-  const generateBtn = document.createElement("button");
-  generateBtn.innerText = "Generate Pokemon";
-  generateBtn.id = "generate-pokemon";
-  generateBtn.classList.add("ui", "secondary", "button");
-  // generateBtn.addEventListener("click", renderEverything);
-
-  allPokemonContainer.append(generateBtn);
+  fetchKantoPokemon(url);
+  const newPrevBt = document.querySelector(".btPrev");
+  const newNextBt = document.querySelector(".btNext");
+  newPrevBt.addEventListener("click", () => {
+    renderEverything(document.querySelector(".wwwPrev").innerHTML);
+  });
+  newNextBt.addEventListener("click", () => {
+    renderEverything(document.querySelector(".wwwNext").innerHTML);
+  });
 }
-
 renderEverything("");

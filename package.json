@@ -10,7 +10,5 @@
   "scripts": {
     "prepare": "husky install"
   },
-  "dependencies": {
-    "pokedex-promise-v2": "^4.0.0"
-  }
+  "dependencies": {}
 }
